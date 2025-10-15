@@ -9,38 +9,38 @@ def get_data(id = None) :
     r = requests.get(url=URL, params=params) 
     print(r.json()) 
 
-# get_data(3) 
+# get_data() 
 
 def create_data() : 
     params = {
-        'name' : 'Testing Data', 
-        'roll' : 99, 
+        'name' : 'Testing Data_1', 
+        'roll' : 19, 
         'city' : 'Lahore'
     }
-    print(params)
+    # print(params)
     json_data = json.dumps(params) 
-    print(json_data)
+    # print(json_data)
     response = requests.post(url=URL, json = params)
     print(response.json()) 
 
-create_data() 
+# create_data() 
 
 def update_data() : 
     data = {
-        'id' : 2,
-        'name' : 'Sameer', 
-        'roll' : 48, 
-        'city' : 'Kabul'
+        'id' : 6,
+        'name' : 'Sameer Jugno',
+        'roll' : -48,
+        'city' : 'Moscow'
     }
 
     json_data = json.dumps(data) 
     response = requests.put(URL, data = json_data) 
     print(response.json()) 
 
-# update_data() 
+update_data() 
 
 def delete_data() :
-    data = {'id' : 4} 
+    data = {'id' : 10} 
     # json_data = json.dumps(data)
     response = requests.delete(URL, json = data) 
     print(response.json()) 

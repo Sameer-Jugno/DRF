@@ -49,7 +49,10 @@ def Student_api(request) :
 
         id = python_data.get('id')
         student = Student.objects.get(id=id) 
+
         serializer = StudentSerializer(student, data=python_data)  
+        # use partial = True for partial updation
+        # serializer = StudentSerializer(student, data=python_data,partial=True)  
 
         if serializer.is_valid() : 
             serializer.save() 
