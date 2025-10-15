@@ -14,7 +14,7 @@ def get_data(id = None) :
 def create_data() : 
     params = {
         'name' : 'Testing Data', 
-        'roll' : -1, 
+        'roll' : 99, 
         'city' : 'Lahore'
     }
     print(params)
@@ -23,7 +23,7 @@ def create_data() :
     response = requests.post(url=URL, json = params)
     print(response.json()) 
 
-# create_data() 
+create_data() 
 
 def update_data() : 
     data = {
@@ -37,7 +37,7 @@ def update_data() :
     response = requests.put(URL, data = json_data) 
     print(response.json()) 
 
-update_data() 
+# update_data() 
 
 def delete_data() :
     data = {'id' : 4} 

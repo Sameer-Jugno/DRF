@@ -1,8 +1,13 @@
 from rest_framework import serializers 
 from api.models import Student
+
+def validation(value): 
+    if value > 0 : 
+        raise serializers.ValidationError("Value should be < 50")
+
 class StudentSerializer(serializers.Serializer) : 
     name = serializers.CharField(max_length=100)
-    roll = serializers.IntegerField()
+    roll = serializers.IntegerField(validators=[validation])
     city = serializers.CharField(max_length=100)
 
     def create(self, validated_data):
@@ -21,6 +26,7 @@ class StudentSerializer(serializers.Serializer) :
         return val 
     
     def validate(self, obj) : 
+
         nm = obj.get('name')
         roll = obj.get('roll')
 
