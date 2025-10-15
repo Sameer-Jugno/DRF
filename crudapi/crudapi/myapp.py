@@ -13,8 +13,8 @@ def get_data(id = None) :
 
 def create_data() : 
     params = {
-        'name' : 'Sameer Jugno', 
-        'roll' : 4848, 
+        'name' : 'Testing Data', 
+        'roll' : -1, 
         'city' : 'Lahore'
     }
     print(params)
@@ -28,8 +28,8 @@ def create_data() :
 def update_data() : 
     data = {
         'id' : 2,
-        'name' : 'Sarfraz Khan', 
-        'roll' : 138 , 
+        'name' : 'Sameer', 
+        'roll' : 48, 
         'city' : 'Kabul'
     }
 
@@ -37,7 +37,7 @@ def update_data() :
     response = requests.put(URL, data = json_data) 
     print(response.json()) 
 
-# update_data() 
+update_data() 
 
 def delete_data() :
     data = {'id' : 4} 
@@ -45,4 +45,4 @@ def delete_data() :
     response = requests.delete(URL, json = data) 
     print(response.json()) 
 
-delete_data() 
+# delete_data() 

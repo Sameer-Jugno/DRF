@@ -14,3 +14,17 @@ class StudentSerializer(serializers.Serializer) :
         instance.city = validated_data.get('city', instance.city)
         instance.save() 
         return instance 
+    
+    def validate_roll(self, val) : 
+        if (val < 0) : 
+            raise serializers.ValidationError("Invalid roll number")
+        return val 
+    
+    def validate(self, obj) : 
+        nm = obj.get('name')
+        roll = obj.get('roll')
+
+        if nm == 'Sameer' and roll == 48 : 
+            raise serializers.ValidationError("Already Exist")
+        
+        return obj 
